@@ -7,7 +7,34 @@ import image3 from "../dash/image3.png"
 import image4 from "../dash/image4.png"
 import image5 from "../dash/image5.png"
 import image6 from "../dash/image6.png"
+import { useState } from "react";
 function Dashboard() {
+
+
+    const [search, setSearch] = useState("")
+
+
+    function searchValue(e) {
+        e.preventDefault()
+        setSearch(e.target.value)
+        console.log(search)
+    }
+
+    function showSearchValue() {
+        alert(search)
+        setSearch("")
+
+    }
+
+    function showselectValue(e) {
+        console.log("The Value is " + e.target.value)
+    }
+    
+
+const product=[{image:"https://www.jotform.com/blog/wp-content/uploads/2010/05/3d-abstract-banner.jpg",name:"Abstract 3D",stock:"32 in Stock",price:"$45.99",sales:20},
+{image:"https://m.media-amazon.com/images/I/91nbjD+UbFL._AC_UF350,350_QL80_.jpg",name:"Sharphen Illustration",stock:"32 in Stock",price:"$45.99",sales:20}
+]
+
     return (
         <div className="main-div">
             <div className="left-div">
@@ -38,12 +65,13 @@ function Dashboard() {
             <div className="right-div">
                 <div className="top-right">
                     <span>
-                    <h3 className="hello-heading">Hello Vivek <i className="fa fa-hand-stop-o" style={{ fontSize: "20px", marginRight: "5px" }}></i>,</h3>
+                        <h3 className="hello-heading">Hello Vivek <i className="fa fa-hand-stop-o" style={{ fontSize: "20px", marginRight: "5px" }}></i>,</h3>
                     </span>
                     <span>
-                    <i className="fa fa-search serach" style={{ fontSize: "20px", marginRight: "5px" }}></i><input className="inpt" type="text" value="Search"/>
+                        <i className="fa fa-search serach" style={{ fontSize: "20px", marginRight: "5px" }} onClick={showSearchValue}></i><input className="inpt" type="text" value={search} onChange={searchValue} placeholder="Search" />
                     </span>
-                    
+
+
                 </div>
                 <div className="second-top-right">
                     <img className="dshimg" src={image1} alt="" />
@@ -53,9 +81,45 @@ function Dashboard() {
                 </div>
 
                 <div className="third-top-right">
-                <img className="dshimg-big" src={image5} alt="" />
-                <img className="dshimg-mid" src={image6} alt="" />
+                    <img className="dshimg-big" src={image5} alt="" />
+                    <img className="dshimg-mid" src={image6} alt="" />
 
+                </div>
+
+                <div className="right-div-lower-table">
+                    <div className="upper-table">
+                        <span className="upper-table-left">
+                            <h2 className="product-sell">Product Sell</h2>
+                        </span>
+                        <span className="upper-table-right">
+                            <i className="fa fa-search serach" style={{ fontSize: "20px", marginRight: "5px"  }} onClick={showSearchValue}></i><input className="inpt" type="text" value={search} onChange={searchValue} placeholder="Search" style={{border:"1px solid black"}}/>
+                            <select className="select-tag" name="days" id="days" onChange={showselectValue} style={{border:"1px solid black"}}>
+                                <option value="30days">Last 30 Days</option>
+                                <option value="10days">Last 10 Days</option>
+                                <option value="20days">Last 20 Days</option>
+                                <option value="40days">Last 40 Days</option>
+                            </select>
+                        </span>
+                    </div>
+                    <div className="lower-table">
+                        <div className="table-heading">
+                            <span className="prdct-name">Product Name</span>
+                            <span className="prdct-stock">Stock</span>
+                            <span className="prdct-price">Price</span>
+                            <span className="prdct-sale">Total Sales</span>
+                        </div>
+                        <div className="table-data">
+                           {product.map((p,i)=>(
+                            <div className="each-data">
+                                 <span className="tbl-img"><img src={p.image} style={{width:"40px",height:"40px"}}></img><p className="prd-name">{p.name}</p></span>
+                                 <span className="tbl-stock">{p.stock}</span>
+                                 <span className="tbl-price">{p.price}</span>
+                                 <span className="tbl-sale">{p.sales}</span>
+                            </div>
+                           
+                           ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

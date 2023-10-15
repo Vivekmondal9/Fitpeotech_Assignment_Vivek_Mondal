@@ -8,7 +8,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 100vh;
+    /* height: 100vh; */
     background-color: #161e75;
     gap: 50px;
     padding: 2%;
@@ -123,6 +123,7 @@ li{
   padding-left: 5px;
   padding-right: 5px;
 }
+
 .serach{
   cursor: pointer !important;
 }
@@ -154,6 +155,88 @@ font-size: 20px;
 .vivek{
   font-size: smaller;
 }
+.right-div-lower-table{
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  padding: 2%;
+  border-radius: 10px;
+  gap: 15px;
+  /* height: 20000px; */
+}
+
+.upper-table{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-sell{
+  font-size: medium;
+  font-family: 'Foldit', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Young Serif', serif;
+}
+
+.select-tag{
+  border: none;
+  margin-left: 2px;
+  box-shadow: 2px 2px 2px,black;
+  border-radius: 20px;
+  padding: 2px;
+}
+
+
+.lower-table{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+
+}
+.table-heading{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: inherit;
+  align-items: center;
+  font-family: 'Foldit', sans-serif;
+font-family: 'Pixelify Sans', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Young Serif', serif;
+}
+.table-data{
+  display: flex;
+  flex-direction: column;
+}
+.each-data{
+  display: flex;
+  /* flex-wrap: wrap; */
+  height: 10vh;
+  align-items: center;
+  justify-content: space-between;
+}
+.tbl-img {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+  flex-basis: min-content;
+}
+.prd-name{
+  font-size: smaller;
+}
+
 @media screen and (max-width:600px) {
   .dshimg{
     width: 30vw;
@@ -176,6 +259,7 @@ font-size: 20px;
   }
   
 }
+
 
 @media screen and (max-width:950px) {
   .bottom{
@@ -201,6 +285,20 @@ font-size: 20px;
     font-size: xx-small;
     padding: 0;
     flex-wrap: nowrap;
+  }
+  .tbl-img{
+    flex-direction: column;
+    gap: inherit;
+    
+  }
+  .prdct-name,.prdct-stock,.prdct-price,.prdct-sale{
+    font-size: x-small;
+  }
+  .prd-name,.tbl-stock,.tbl-price,.tbl-sale{
+    font-size: x-small;
+  }
+  .each-data{
+    margin-bottom: 5px;
   }
   
 }
